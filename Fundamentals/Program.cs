@@ -1,4 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using System.Runtime.InteropServices;
+
 Console.WriteLine("Hello, World!");
 
 int Age = 36;
@@ -69,5 +71,23 @@ foreach (KeyValuePair<string,int> entry in PetAges)
     
 }
 
+static void SayHello()
+{
+    Console.WriteLine("Hello how are you doing today?");
+}
+
+//parameters are typicallly camelCase 
+static int MathingTheMath(int a, int b = 5)
+{
+    return a * b;
+}
+
+// static int MathingTheMath(int a)
+// {
+//     return a * 5;
+// }
 
 
+// SayHello();
+// SayHello();
+Console.WriteLine(MathingTheMath(4,8));
