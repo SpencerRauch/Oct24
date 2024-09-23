@@ -46,7 +46,7 @@ class SinglyLinkedList {
      * @returns {boolean}
      */
     isEmpty() {
-        //your code here
+        return this.head == null;
     }
     /**
      * Creates a new node with the given data and inserts it at the back of
