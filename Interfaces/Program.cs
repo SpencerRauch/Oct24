@@ -26,3 +26,5 @@ foreach (Bird bird in AllBirds)
     }
 }
 // RedTail.Fly();
+
+List<string> strings = new();
