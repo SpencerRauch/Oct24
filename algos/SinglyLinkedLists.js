@@ -147,5 +147,5 @@ testList.insertAtBackMany([10, 8, 12, 5, 15]);
 // console.log(testList.toArr());
 
 // ! remove head test
-// testList.removeHead();
+// console.log(testList.removeHead());
 // console.log(testList.toArr());
