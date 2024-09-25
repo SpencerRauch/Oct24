@@ -33,6 +33,42 @@ public class FirstController : Controller   // Remember inheritance?
         return View();
     }
 
+    [HttpGet("form")]
+    public ViewResult FirstForm()
+    {
+        return View();
+    }
+
+    // [HttpPost("process")]
+    // public string ProcessForm(int id, string name)
+    // {
+    //     return $"{name} supplied id {id}";
+    // }.
+
+    // [HttpPost("process")]
+    // public RedirectResult ProcessForm(int id, string name)
+    // {
+    //     return Redirect($"view/{id}/{name}");
+    // }
+
+    // [HttpPost("process")]
+    // public RedirectToActionResult ProcessForm(int id, string name)
+    // {
+    //     return RedirectToAction("ViewParams",new {id,name=name});
+    // }
+
+    [HttpPost("process")]
+    public IActionResult ProcessForm(int id, string name)
+    {
+        if (id == 123)
+        {
+            return View("SecretPage");
+        }
+        return RedirectToAction("ViewParams",new {id,name=name});
+    }
+
+
+
     [HttpGet("view")]
     public ViewResult FirstView()
     {

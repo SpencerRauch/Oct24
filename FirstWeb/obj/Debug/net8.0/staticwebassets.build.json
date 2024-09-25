@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "bI+/l1B3jXjDyed79+0Giv/PqEuMSCcaGeMOS3gcbX4=",
+  "Hash": "PslhwdPRGnhkOHOKJAM+FIva8F6LiGt8MykeR1OiTAo=",
   "Source": "FirstWeb",
   "BasePath": "_content/FirstWeb",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "FirstWeb\\wwwroot",
       "Source": "FirstWeb",
-      "ContentRoot": "C:\\stacks\\CSharp\\Oct24\\FirstWeb\\wwwroot\\",
+      "ContentRoot": "c:\\stacks\\CSharp\\Oct24\\FirstWeb\\wwwroot\\",
       "BasePath": "_content/FirstWeb",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\stacks\\CSharp\\Oct24\\FirstWeb\\wwwroot\\css\\bootstrap.css",
+      "Identity": "c:\\stacks\\CSharp\\Oct24\\FirstWeb\\wwwroot\\css\\bootstrap.css",
       "SourceId": "FirstWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\stacks\\CSharp\\Oct24\\FirstWeb\\wwwroot\\",
+      "ContentRoot": "c:\\stacks\\CSharp\\Oct24\\FirstWeb\\wwwroot\\",
       "BasePath": "_content/FirstWeb",
       "RelativePath": "css/bootstrap.css",
       "AssetKind": "All",
@@ -36,10 +36,10 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap.css"
     },
     {
-      "Identity": "C:\\stacks\\CSharp\\Oct24\\FirstWeb\\wwwroot\\img\\cake.jpg",
+      "Identity": "c:\\stacks\\CSharp\\Oct24\\FirstWeb\\wwwroot\\img\\cake.jpg",
       "SourceId": "FirstWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\stacks\\CSharp\\Oct24\\FirstWeb\\wwwroot\\",
+      "ContentRoot": "c:\\stacks\\CSharp\\Oct24\\FirstWeb\\wwwroot\\",
       "BasePath": "_content/FirstWeb",
       "RelativePath": "img/cake.jpg",
       "AssetKind": "All",

@@ -1,11 +1,11 @@
 {
   "Files": [
     {
-      "Id": "C:\\stacks\\CSharp\\Oct24\\FirstWeb\\wwwroot\\css\\bootstrap.css",
+      "Id": "c:\\stacks\\CSharp\\Oct24\\FirstWeb\\wwwroot\\css\\bootstrap.css",
       "PackagePath": "staticwebassets\\css\\bootstrap.css"
     },
     {
-      "Id": "C:\\stacks\\CSharp\\Oct24\\FirstWeb\\wwwroot\\img\\cake.jpg",
+      "Id": "c:\\stacks\\CSharp\\Oct24\\FirstWeb\\wwwroot\\img\\cake.jpg",
       "PackagePath": "staticwebassets\\img\\cake.jpg"
     },
     {
