@@ -153,7 +153,12 @@ class SinglyLinkedList {
      * @returns {boolean}
     */
     contains(val) {
-        //your code here
+        let runner = this.head;
+        while (runner) {
+            if (runner.data === val) return true;
+            runner = runner.next;
+        }
+        return false;
     }
     /**
      * Determines whether or not the given search value exists in this list recursively.
@@ -165,7 +170,9 @@ class SinglyLinkedList {
      * @returns {boolean}
     */
     containsRecursive(val, current = this.head) {
-        //Your code here
+        if (!current) return false;
+        if (current.data === val) return true;
+        return this.containsRecursive(val, current.next);
     }
     /**
     * Removes the last node of this list.
@@ -174,7 +181,23 @@ class SinglyLinkedList {
     * @returns {any} The data from the node that was removed or null if no nodes were removed.
     */
     removeBack() {
-        //Your code here
+        if (this.isEmpty()) {
+            return null;
+        }
+
+        // only one node, remove the head
+        if (this.head.next === null) {
+            return this.removeHead();
+        }
+        //more than one node, move to one before the end
+        let runner = this.head;
+        while (runner.next.next) {
+            runner = runner.next;
+        }
+
+        const removedData = runner.next.data;
+        runner.next = null;
+        return removedData;
     }
 }
 const emptyList = new SinglyLinkedList()
