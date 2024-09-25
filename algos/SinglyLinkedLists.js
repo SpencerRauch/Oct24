@@ -144,14 +144,59 @@ class SinglyLinkedList {
         this.head = this.head.next;
         return removed.data;
     }
+
+    /**
+     * Determines whether or not the given search value exists in this list iteratively.
+     * - Time: O(?).
+     * - Space: O(?).
+     * @param {any} val The data to search for in the nodes of this list.
+     * @returns {boolean}
+    */
+    contains(val) {
+        //your code here
+    }
+    /**
+     * Determines whether or not the given search value exists in this list recursively.
+     * - Time: O(?).
+     * - Space: O(?).
+     * @param {any} val The data to search for in the nodes of this list.
+     * @param {?ListNode} current The current node during the traversal of this list
+     *    or null when the end of the list has been reached.
+     * @returns {boolean}
+    */
+    containsRecursive(val, current = this.head) {
+        //Your code here
+    }
+    /**
+    * Removes the last node of this list.
+    * - Time: O(?).
+    * - Space: O(?).
+    * @returns {any} The data from the node that was removed or null if no nodes were removed.
+    */
+    removeBack() {
+        //Your code here
+    }
 }
-let testList = new SinglyLinkedList();
-testList.insertAtBackMany([10, 8, 12, 5, 15]);
+const emptyList = new SinglyLinkedList()
+const singleNodeList = new SinglyLinkedList().insertAtBackMany([1]);
+const biNodeList = new SinglyLinkedList().insertAtBackMany([1, 2]);
+const firstThreeList = new SinglyLinkedList().insertAtBackMany([1, 2, 3]);
+const secondThreeList = new SinglyLinkedList().insertAtBackMany([4, 5, 6]);
+const unorderedList = new SinglyLinkedList().insertAtBackMany([
+-5, -10, 4, -3, 6, 1, -7, -2,
+]);
 
-// ! insert at front test
-// testList.insertAtFront(999);
-// console.log(testList.toArr());
+// ! contains
+console.log(emptyList.contains(0)) // Should be false
+console.log(unorderedList.contains(-2)) // Should be true
+console.log(firstThreeList.contains(1)) // Should be true
 
-// ! remove head test
-// console.log(testList.removeHead());
-// console.log(testList.toArr());
+// ! contains recursive
+console.log(emptyList.containsRecursive(0)) // Should be false
+console.log(unorderedList.containsRecursive(-2)) // Should be true
+console.log(firstThreeList.containsRecursive(1)) // Should be true
+
+// ! remove back
+console.log(emptyList.removeBack()) // should be null
+console.log(secondThreeList.removeBack()) //should be 6
+console.log(secondThreeList.toArr()) // [4, 5]
