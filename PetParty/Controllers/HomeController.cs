@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using PetParty.Models;
 
 namespace PetParty.Controllers;
@@ -18,7 +19,18 @@ public class HomeController : Controller
     [HttpGet("")]
     public IActionResult Index()
     {
-        return View();
+        List<SelectListItem> Options = 
+        [
+            new SelectListItem(" --- please choose ---","",true,true),
+            new("Bear","Bear"),
+            new("Deer","Deer"),
+            new("Bobcat","Bobcat"),
+            new("Coyote","Coyote"),
+            new("Raccoon","Raccoon")
+
+        ];
+        ViewBag.Options = Options;
+        return View("Index");
     }
 
     public IActionResult Privacy()
@@ -46,7 +58,7 @@ public class HomeController : Controller
         }        
         if (!ModelState.IsValid)
         {
-            return View("Index");
+            return Index();
         }
         Console.WriteLine($"{newPet.Name} is a {newPet.Age} year old {newPet.Species}");
         Console.WriteLine($"{(newPet.DoesItBite ? "They are a biter!" : "What a sweet pet")}");
