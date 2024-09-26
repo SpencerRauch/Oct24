@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\stacks\\CSharp\\Oct24\\PetParty\\PetParty.csproj": {}
+    "C:\\stacks\\CSharp\\Oct24\\PetParty\\PetParty.csproj": {}
   },
   "projects": {
-    "c:\\stacks\\CSharp\\Oct24\\PetParty\\PetParty.csproj": {
+    "C:\\stacks\\CSharp\\Oct24\\PetParty\\PetParty.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\stacks\\CSharp\\Oct24\\PetParty\\PetParty.csproj",
+        "projectUniqueName": "C:\\stacks\\CSharp\\Oct24\\PetParty\\PetParty.csproj",
         "projectName": "PetParty",
-        "projectPath": "c:\\stacks\\CSharp\\Oct24\\PetParty\\PetParty.csproj",
+        "projectPath": "C:\\stacks\\CSharp\\Oct24\\PetParty\\PetParty.csproj",
         "packagesPath": "C:\\Users\\bizar\\.nuget\\packages\\",
-        "outputPath": "c:\\stacks\\CSharp\\Oct24\\PetParty\\obj\\",
+        "outputPath": "C:\\stacks\\CSharp\\Oct24\\PetParty\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\bizar\\AppData\\Roaming\\NuGet\\NuGet.Config"

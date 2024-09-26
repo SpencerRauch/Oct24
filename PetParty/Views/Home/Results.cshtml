@@ -1,0 +1,12 @@
+@{
+    ViewData["Title"] = "All Pets";
+}
+
+@model List<Pet>
+
+@foreach (Pet p in Model)
+{
+    <p>@p.Name @p.Species </p>
+}
+
+<a asp-action="Index" asp-controller="Home" class="btn btn-primary">Add Another Pet</a>

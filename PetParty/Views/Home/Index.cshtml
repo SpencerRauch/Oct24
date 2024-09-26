@@ -3,7 +3,50 @@
     Layout = "_NoNav";
 }
 
+@model Pet
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    @* <form action="/process" method="post">
+        <div class="mb-3">
+            <label for="Name">Name</label>
+            <input type="text" name="Name">
+        </div>
+        <div class="mb-3">
+            <label for="Species">Species</label>
+            <input type="text" name="Species">
+        </div>
+        <div class="mb-3">
+            <label for="DoesItBite">DoesItBite</label>
+            <input type="checkbox" name="DoesItBite" value="True">
+        </div>
+        <div class="mb-3">
+            <label for="Age">Age</label>
+            <input type="number" name="Age">
+        </div>
+        <button class="btn btn-primary">Submit</button>
+    </form> *@
+    <form asp-action="Process" asp-controller="Home" method="post">
+        <div class="mb-3">
+            <label asp-for="Name">Hard Coded Name</label>
+            <input asp-for="Name">
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Species"></label>
+            <input asp-for="Species">
+            <span asp-validation-for="Species" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="DoesItBite"></label>
+            <input asp-for="DoesItBite">
+            <span asp-validation-for="DoesItBite" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Age"></label>
+            <input asp-for="Age">
+            <span asp-validation-for="Age" class="text-danger"></span>
+        </div>
+        <button class="btn btn-primary">Submit</button>
+    </form>
+
 </div>
+

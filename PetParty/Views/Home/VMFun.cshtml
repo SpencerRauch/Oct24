@@ -1,0 +1,12 @@
+@{
+    ViewData["Title"] = "VM FUN";
+}
+
+@model List<string>
+
+<p>The number is @Model</p>
+
+@foreach (string name in Model)
+{
+    <p>@name</p>
+}
