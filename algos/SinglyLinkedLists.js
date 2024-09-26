@@ -208,7 +208,17 @@ class SinglyLinkedList {
     *    second to last node.
     */
     secondToLast() {
-        //your code here
+        if (!this.head || !this.head.next) {
+            return null;
+        }
+
+        // There are at least 2 nodes since the above return hasn't happened.
+        let runner = this.head;
+
+        while (runner.next.next) {
+            runner = runner.next;
+        }
+        return runner.data;
     }
     /**
     * Removes the node that has the matching given val as it's data.
@@ -219,7 +229,25 @@ class SinglyLinkedList {
     * @returns {boolean} Indicates if a node was removed or not.
     */
     removeVal(val) {
-        //your code here
+        if (this.isEmpty()) {
+            return false;
+        }
+
+        if (this.head.data === val) {
+            this.removeHead();
+            return true;
+        }
+
+        let runner = this.head;
+
+        while (runner.next) {
+            if (runner.next.data === val) {
+                runner.next = runner.next.next;
+                return true;
+            }
+            runner = runner.next;
+        }
+        return false;
     }
 }
 const emptyList = new SinglyLinkedList();
