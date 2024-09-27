@@ -249,16 +249,55 @@ class SinglyLinkedList {
         }
         return false;
     }
+    
+    /**
+    * Concatenates the nodes of a given list onto the back of this list.
+    * - Time: O(?).
+    * - Space: O(?).
+    * @param {SinglyLinkedList} addList An instance of a different list whose
+    *    whose nodes will be added to the back of this list.
+    * @returns {SinglyLinkedList} This list with the added nodes.
+    */
+    concat(addList) {
+        //Your code here
+    }
+
+    /**
+    * Reverses this list in-place without using any extra lists.
+    * - Time: (?).
+    * - Space: (?).
+    * @returns {SinglyLinkedList} This list.
+    */
+    reverse() {
+        //Your code here
+    }
+
 }
+
+
+/******************************************************************* 
+ Multiple test lists already constructed to test your methods on.
+ Below commented code depends on insertAtBack method to be completed,
+ after completing it, uncomment the code.
+ */
 const emptyList = new SinglyLinkedList();
+
 const testList = new SinglyLinkedList();
 testList.insertAtBackMany([10, 8, 12, 5, 15]);
 
-// ! second to last test:
-// console.log(testList.secondToLast()) //should be 5
+const testListB = new SinglyLinkedList().insertAtBackMany([1, 2, 3]);
 
-// ! remove val test:
-// testList.removeVal(8);
-// testList.removeVal(15);
-// testList.removeVal(10);
-// console.log(testList.toArr()) // should be [12,15]
+const reverseMe = new SinglyLinkedList().insertAtBackMany(['o','l','l','e','h'])
+
+//Concat:
+console.log(testList.concat(testListB).toArr());
+/* Expected:
+[
+  10, 8, 12, 5,
+  15, 1,  2, 3
+]
+*/
+
+//reverse:
+console.log(reverseMe.reverse().toArr());
+//[ 'h', 'e', 'l', 'l', 'o' ]
