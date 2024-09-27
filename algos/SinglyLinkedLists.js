@@ -249,7 +249,7 @@ class SinglyLinkedList {
         }
         return false;
     }
-    
+
     /**
     * Concatenates the nodes of a given list onto the back of this list.
     * - Time: O(?).
@@ -259,7 +259,18 @@ class SinglyLinkedList {
     * @returns {SinglyLinkedList} This list with the added nodes.
     */
     concat(addList) {
-        //Your code here
+        if (this.isEmpty()) {
+            this.head = addList.head;
+            return this;
+        }
+
+        let runner = this.head;
+        while (runner.next) {
+            runner = runner.next;
+        }
+        runner.next = addList.head;
+
+        return this;
     }
 
     /**
@@ -269,7 +280,34 @@ class SinglyLinkedList {
     * @returns {SinglyLinkedList} This list.
     */
     reverse() {
-        //Your code here
+        if (!this.head || !this.head.next) {
+            return this;
+        }
+    
+        let current = this.head;
+    
+        while (current.next) {
+            const newHead = current.next;
+            // cut the newHead out from where it currently is
+            current.next = current.next.next;
+            newHead.next = this.head;
+            this.head = newHead;
+        }
+        return this;
+    }
+
+    reverse2() {
+        let prev = null;
+        let node = this.head;
+    
+        while (node) {
+            const nextNode = node.next;
+            node.next = prev;
+            prev = node;
+            node = nextNode;
+        }
+        this.head = prev;
+        return this;
     }
 
 }
