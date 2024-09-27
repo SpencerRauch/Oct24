@@ -64,15 +64,36 @@ public class HomeController : Controller
         Console.WriteLine($"{(newPet.DoesItBite ? "They are a biter!" : "What a sweet pet")}");
 
         FakePetDb.Add(newPet);
+        HttpContext.Session.SetString("LastPet",newPet.Name);
         // FakePetDb.SaveChanges();
         
         return RedirectToAction("Results");
     }
 
     [HttpGet("results")]
-    public ViewResult Results()
+    public IActionResult Results()
     {
+        string? LastPet = HttpContext.Session.GetString("LastPet");
+        if (LastPet == null)
+        {
+            return RedirectToAction("Index");
+        }
         return View(FakePetDb);
+    }
+
+    [HttpPost("set")]
+    public RedirectToActionResult SetFilter(int limit)
+    {
+        HttpContext.Session.SetInt32("Limit",limit);
+        return RedirectToAction("Results");
+    }
+
+    [HttpPost("clear")]
+    public RedirectToActionResult ClearFilter()
+    {
+        // HttpContext.Session.Clear();
+        HttpContext.Session.Remove("Limit");
+        return RedirectToAction("Results");
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
