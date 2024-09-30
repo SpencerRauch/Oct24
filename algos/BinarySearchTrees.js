@@ -42,7 +42,7 @@ class BinarySearchTree {
      * - Space: O(?).
      * @returns {boolean} Indicates if this tree is empty.
      */
-    isEmpty() { 
+    isEmpty() {
         //Your code here
     }
     /**
@@ -64,7 +64,7 @@ class BinarySearchTree {
      *    the tree is being traversed.
      * @returns {number} The smallest integer from this tree.
      */
-    minRecursive(current = this.root) { 
+    minRecursive(current = this.root) {
         //Your code here
     }
     /**
@@ -75,7 +75,7 @@ class BinarySearchTree {
      *    the tree is being traversed.
      * @returns {number} The largest integer from this tree.
      */
-    max(current = this.root) { 
+    max(current = this.root) {
         //Your code here
     }
     /**
@@ -86,7 +86,7 @@ class BinarySearchTree {
      *    the tree is being traversed.
      * @returns {number} The largest integer from this tree.
      */
-    maxRecursive(current = this.root) { 
+    maxRecursive(current = this.root) {
         //Your code here
     }
     // Logs this tree horizontally with the root on the left.
