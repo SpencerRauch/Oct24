@@ -44,6 +44,7 @@ class BinarySearchTree {
      */
     isEmpty() {
         //Your code here
+        return this.root == null;
     }
     /**
      * Retrieves the smallest integer data from this tree or null if tree is empty.
