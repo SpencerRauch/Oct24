@@ -1,0 +1,9 @@
+@{
+    ViewData["Title"] = "One Post";
+}
+
+@model Post
+
+<h1>Viewing: @Model.Title</h1>
+<p>@Model.Body</p>
+<img src="@Model.ImgURL" alt="@Model.Title">

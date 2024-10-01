@@ -1,0 +1,18 @@
+@{
+    ViewData["Title"] = "All Posts";
+}
+
+@model List<Post>
+
+@foreach (Post p in Model)
+{
+    <div class="shadow p-3 mb-3 text-center">
+        <h3>@p.Title</h3>
+        <p>@p.Body</p>
+        <img src="@p.ImgURL" alt="@p.Title">
+        <div class="d-flex justify-content-center gap-2 m-2">
+            <a href="/posts/@p.PostId">Version One</a>
+            <a asp-route-postId="@p.PostId" asp-action="ViewPost" asp-controller="Post" class="btn btn-primary">View</a>
+        </div>
+    </div>
+}
