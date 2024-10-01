@@ -123,7 +123,17 @@ class BinarySearchTree {
      * @returns {boolean} Indicates if the searchVal was found.
      */
     contains(searchVal) {
-        //Your code here
+        if (this.isEmpty()) return false;
+        let current = this.root;
+        while (current) {
+            if (current.data === searchVal) return true;
+            if (searchVal < current.data) {
+                current = current.left;
+            } else {
+                current = current.right;
+            }
+        }
+        return false;
     }
 
     /**
@@ -134,7 +144,10 @@ class BinarySearchTree {
      * @returns {boolean} Indicates if the searchVal was found.
      */
     containsRecursive(searchVal, current = this.root) {
-        //Your code here
+        if (current === null) return false;
+        if (current.data === searchVal) return true;
+        if (searchVal < current.data) return this.containsRecursive(searchVal, current.left);
+        return this.containsRecursive(searchVal, current.right);
     }
 
     /**
@@ -146,7 +159,8 @@ class BinarySearchTree {
      *    startNode is the root or not.
      */
     range(startNode = this.root) {
-        //Your code here
+        if (startNode == null) return null;
+        return this.max(startNode) - this.min(startNode);
     }
 
 }
