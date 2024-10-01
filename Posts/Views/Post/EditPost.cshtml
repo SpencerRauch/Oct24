@@ -1,0 +1,26 @@
+@{
+    ViewData["Title"] = $"Editing {Model.Title}";
+}
+
+@model Post
+
+<h1>Editing Post</h1>
+<form asp-route-postId="@Model.PostId" asp-action="UpdatePost" asp-controller="Post" method="POST" class="shadow p-3 rounded">
+    <div class="mb-3">
+        <label asp-for="Title"></label>
+        <input asp-for="Title" class="form-control" value="@Model.Title">
+        <span class="text-danger" asp-validation-for="Title"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Body"></label>
+        <input asp-for="Body" class="form-control" value="@Model.Body">
+        <span class="text-danger" asp-validation-for="Body" ></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="ImgURL"></label>
+        <input asp-for="ImgURL" class="form-control" value="@Model.ImgURL">
+        <span class="text-danger" asp-validation-for="ImgURL" ></span>
+    </div>
+    <button class="btn btn-primary">Update</button>
+    <a asp-action="AllPosts" asp-controller="Post" class="btn btn-danger">Cancel</a>
+</form>

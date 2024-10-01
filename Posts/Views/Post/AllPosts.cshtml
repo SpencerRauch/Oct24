@@ -13,6 +13,10 @@
         <div class="d-flex justify-content-center gap-2 m-2">
             <a href="/posts/@p.PostId">Version One</a>
             <a asp-route-postId="@p.PostId" asp-action="ViewPost" asp-controller="Post" class="btn btn-primary">View</a>
+            <form asp-route-postId="@p.PostId" asp-action="DeletePost" asp-controller="Post" method="post">
+                <button class="btn btn-danger">Delete</button>
+            </form>
+            <a asp-route-postId="@p.PostId" asp-action="EditPost" asp-controller="Post" class="btn btn-info">Edit</a>
         </div>
     </div>
 }

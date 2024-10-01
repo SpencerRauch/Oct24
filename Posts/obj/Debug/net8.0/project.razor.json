@@ -19344,6 +19344,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\stacks\\CSharp\\Oct24\\Posts\\Views\\Post\\EditPost.cshtml",
+      "TargetPath": "Views\\Post\\EditPost.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\stacks\\CSharp\\Oct24\\Posts\\Views\\Post\\AllPosts.cshtml",
       "TargetPath": "Views\\Post\\AllPosts.cshtml",
       "FileKind": "mvc"
