@@ -4,6 +4,8 @@ using Posts.Models;
 
 namespace Posts.Controllers;
 
+
+[SessionCheck]
 public class PostController : Controller
 {
     private MyContext _context; //dbConnection
@@ -49,6 +51,7 @@ public class PostController : Controller
         }
         return View(SinglePost);
     }
+
 
     [HttpPost("posts/{postId}/delete")]
     public RedirectToActionResult DeletePost(int postId)
