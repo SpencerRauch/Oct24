@@ -20,6 +20,11 @@ public class UserController : Controller
     [HttpGet("")]
     public IActionResult Index()
     {
+        // int? UserId = HttpContext.Session.GetInt32("UserId");
+        // if (UserId != null)
+        // {
+        //     return RedirectToAction("AllPosts","Post");
+        // }
         return View();
     }
 

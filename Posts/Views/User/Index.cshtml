@@ -1,6 +1,8 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
     Layout = "_Empty";
+    int? UserId = Context.Session.GetInt32("UserId");
+    bool LoggedIn = UserId != null;
 }
 
 <div class="text-center">
@@ -9,4 +11,9 @@
         @await Html.PartialAsync("_Register", new User()) @* Explicitly passing model to show you you can*@
         @await Html.PartialAsync("_Login")
     </div>
+
+    @if(LoggedIn)
+    {
+        <a asp-action="AllPosts" asp-controller="Post" class="btn btn-secondary">You're logged in, head to All Posts by clicking here</a>
+    }
 </div>
