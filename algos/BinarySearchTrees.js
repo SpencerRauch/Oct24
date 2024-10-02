@@ -163,24 +163,34 @@ class BinarySearchTree {
         return this.max(startNode) - this.min(startNode);
     }
 
+    // https://www.cs.usfca.edu/~galles/visualization/BST.html
+    /**
+     * Inserts a new node with the given newVal in the right place to preserve
+     * the order of this tree.
+     * - Time: O(?).
+     * - Space: O(?).
+     * @param {number} newVal The data to be added to a new node.
+     * @returns {BinarySearchTree} This tree.
+     */
+    insert(newVal) {
+        //your code here
+    }
+
+    /**
+     * Inserts a new node with the given newVal in the right place to preserve
+     * the order of this tree.
+     * - Time: O(?).
+     * - Space: O(?).
+     * @param {number} newVal The data to be added to a new node.
+     * @param {Node} curr The node that is currently accessed from the tree as
+     *    the tree is being traversed.
+     * @returns {BinarySearchTree} This tree.
+     */
+    insertRecursive(newVal, curr = this.root) { 
+        //your code here
+    }
 }
 
-const emptyTree = new BinarySearchTree();
-const oneNodeTree = new BinarySearchTree();
-oneNodeTree.root = new BSTNode(10);
-// oneNodeTree.print()
-
-/* twoLevelTree
-        root
-        10
-      /   \
-    5     15
-*/
-const twoLevelTree = new BinarySearchTree();
-twoLevelTree.root = new BSTNode(10);
-twoLevelTree.root.left = new BSTNode(5);
-twoLevelTree.root.right = new BSTNode(15);
-// twoLevelTree.print();
 
 /* threeLevelTree 
         root
@@ -191,18 +201,19 @@ twoLevelTree.root.right = new BSTNode(15);
 2   6  13  
 */
 const threeLevelTree = new BinarySearchTree();
-threeLevelTree.root = new BSTNode(10);
-threeLevelTree.root.left = new BSTNode(5);
-threeLevelTree.root.left.left = new BSTNode(2);
-threeLevelTree.root.left.right = new BSTNode(6);
-threeLevelTree.root.right = new BSTNode(15);
-threeLevelTree.root.right.left = new BSTNode(13);
-// threeLevelTree.print();
+threeLevelTree.insert(10)
+threeLevelTree.insert(5)
+threeLevelTree.insert(15)
+threeLevelTree.insert(2)
+threeLevelTree.insert(6)
+threeLevelTree.insert(13)
+threeLevelTree.print()
 
-//DAY TWO TESTS:
-console.log(threeLevelTree.contains(13)); //true
-console.log(threeLevelTree.contains(1)); //false
-console.log(threeLevelTree.containsRecursive(13)); //true
-console.log(threeLevelTree.containsRecursive(7)); //false
-
-console.log(threeLevelTree.range()); // 13
+const threeLevelTree2 = new BinarySearchTree();
+threeLevelTree2.insertRecursive(10)
+threeLevelTree2.insertRecursive(5)
+threeLevelTree2.insertRecursive(15)
+threeLevelTree2.insertRecursive(2)
+threeLevelTree2.insertRecursive(6)
+threeLevelTree2.insertRecursive(13)
+threeLevelTree2.print()
