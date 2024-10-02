@@ -173,7 +173,34 @@ class BinarySearchTree {
      * @returns {BinarySearchTree} This tree.
      */
     insert(newVal) {
-        //your code here
+        const node = new BSTNode(newVal);
+
+        //if empty, make the new root
+        if (this.isEmpty()) {
+            this.root = node;
+            return this;
+        }
+
+        let current = this.root;
+
+        while (true) {
+            if (newVal >= current.data) { // if greater or equal, go right
+                if (current.right === null) { // if there is no right, insert here
+                    current.right = node;
+                    return this;
+                }
+
+                current = current.right;
+            } else {
+                // newVal is less than current.data
+                if (current.left === null) { // if there is no left, insert here
+                    current.left = node;
+                    return this;
+                }
+
+                current = current.left;
+            }
+        }
     }
 
     /**
@@ -187,7 +214,24 @@ class BinarySearchTree {
      * @returns {BinarySearchTree} This tree.
      */
     insertRecursive(newVal, curr = this.root) { 
-        //your code here
+        if (this.isEmpty()) {
+            this.root = new BSTNode(newVal);
+            return this;
+        }
+
+        if (newVal >= curr.data) {
+            if (curr.right === null) {
+                curr.right = new BSTNode(newVal);
+                return this;
+            }
+            return this.insertRecursive(newVal, curr.right);
+        }
+
+        if (curr.left === null) {
+            curr.left = new BSTNode(newVal);
+            return this;
+        }
+        return this.insertRecursive(newVal, curr.left);
     }
 }
 
