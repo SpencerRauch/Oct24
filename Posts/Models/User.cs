@@ -31,6 +31,9 @@ public class User
     [DataType(DataType.Password)]
     [Compare("Password")]
     public string ConfirmPassword { get; set; }
+
+    //navprop
+    public List<Post> CreatedPosts { get;set; } = [];
 }
 
 public class UniqueEmailAttribute : ValidationAttribute

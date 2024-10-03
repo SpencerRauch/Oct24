@@ -1,5 +1,7 @@
 @{
     ViewData["Title"] = "One Post";
+    int LoggedId = (int)Context.Session.GetInt32("UserId");
+    bool OurPost = LoggedId == Model.UserId;
 }
 
 @model Post
@@ -7,3 +9,12 @@
 <h1>Viewing: @Model.Title</h1>
 <p>@Model.Body</p>
 <img src="@Model.ImgURL" alt="@Model.Title">
+@if(OurPost)
+{
+    <div class="d-flex mt-3 gap-3">
+        <a asp-route-postId="@Model.PostId" asp-action="EditPost" asp-controller="Post" class="btn btn-info">Edit</a>
+        <form asp-route-postId="@Model.PostId" asp-action="DeletePost" asp-controller="Post" method="Post">
+            <button class="btn btn-outline-danger">Delete</button>
+        </form>
+    </div>
+}

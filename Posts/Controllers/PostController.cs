@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Posts.Models;
 
 namespace Posts.Controllers;
@@ -28,6 +29,7 @@ public class PostController : Controller
         {
             return View("NewPost");
         }
+        newPost.UserId = (int)HttpContext.Session.GetInt32("UserId");
         _context.Add(newPost);
         _context.SaveChanges();
         // _context.Posts.Add(newPost);
@@ -37,7 +39,7 @@ public class PostController : Controller
     [HttpGet("posts")]
     public ViewResult AllPosts()
     {
-        List<Post> Posts = _context.Posts.OrderByDescending(p => p.CreatedAt).Take(100).ToList();
+        List<Post> Posts = _context.Posts.Include(p=>p.Poster).OrderByDescending(p => p.CreatedAt).Take(100).ToList();
         return View(Posts);
     }
 
@@ -57,7 +59,7 @@ public class PostController : Controller
     public RedirectToActionResult DeletePost(int postId)
     {
         Post? SinglePost = _context.Posts.SingleOrDefault(p => p.PostId == postId);
-        if (SinglePost != null)
+        if (SinglePost != null && SinglePost.UserId == (int)HttpContext.Session.GetInt32("UserId"))
         {
             _context.Remove(SinglePost);
             _context.SaveChanges();

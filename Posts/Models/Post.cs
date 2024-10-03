@@ -25,4 +25,10 @@ public class Post
 
     public DateTime CreatedAt {get;set;} = DateTime.Now;
     public DateTime UpdatedAt {get;set;} = DateTime.Now;
+
+    //foreign key
+    public int UserId { get;set; }
+
+    //navprops
+    public User? Poster { get;set; }
 }

@@ -1,0 +1,11 @@
+@model User
+<h2>@Model.Name's Posts</h2>
+@foreach (Post p in Model.CreatedPosts)
+{
+    <div class="mb-3 shadow p-3 text-center">
+        <h3>@p.Title</h3>
+        <p>@p.Body</p>
+        <img src="@p.ImgURL" alt="@p.Title">
+        
+    </div>
+}
