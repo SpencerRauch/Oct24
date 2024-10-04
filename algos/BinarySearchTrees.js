@@ -300,7 +300,24 @@ class BinarySearchTree {
          * @returns {Array<number>} The data of all nodes in BFS order.
          */
     toArrLevelorder(current = this.root) {
-        //your code here
+        const queue = [];
+        const vals = [];
+        
+        if(current){
+            queue.push(current);
+        }
+
+        while (queue.length > 0){
+            current = queue.shift();
+            vals.push(current.data);
+            if (current.left){
+                queue.push(current.left);
+            }
+            if (current.right){
+                queue.push(current.right);
+            }
+        }
+        return vals;
     }
 
 
