@@ -7,27 +7,32 @@
 
 @model Post
 
-<h1>Viewing: @Model.Title by @Model.Poster?.Name</h1>
-<p>@Model.Body</p>
-<img src="@Model.ImgURL" alt="@Model.Title">
-<div class="d-flex align-items-top gap-3">
-    <p>@Model.UserLikes.Count likes</p>
-    <ul>
-        @foreach (UserPostLike upl in Model.UserLikes)
-        {
-            <li>@upl.LikingUser?.Name</li>
-        }
-    </ul>
-</div>
-    <div class="d-flex mt-3 gap-3">
-@if(OurPost)
-{
-        <a asp-route-postId="@Model.PostId" asp-action="EditPost" asp-controller="Post" class="btn btn-info">Edit</a>
-        <form asp-route-postId="@Model.PostId" asp-action="DeletePost" asp-controller="Post" method="Post">
-            <button class="btn btn-outline-danger">Delete</button>
-        </form>
-}
-    <form asp-route-postId="@Model.PostId" asp-action="ToggleLike" asp-controller="Post" method="Post">
-        <button class="btn btn-info">@(liked?"Unlike":"Like")</button>
-    </form>
+<div class="shadow p-3 m-3 border text-center">
+    <h1>Viewing: @Model.Title by @Model.Poster?.Name</h1>
+    <p>@Model.Body</p>
+    <img src="@Model.ImgURL" alt="@Model.Title">
+    <div class="d-flex justify-content-center align-items-top gap-3">
+        <p>@Model.UserLikes.Count likes</p>
+        <ul>
+            @foreach (UserPostLike upl in Model.UserLikes)
+            {
+                <li>@upl.LikingUser?.Name</li>
+            }
+        </ul>
     </div>
+        <div class="d-flex mt-3 gap-3 justify-content-center">
+    @if(OurPost)
+    {
+            <a asp-route-postId="@Model.PostId" asp-action="EditPost" asp-controller="Post" class="btn btn-info">Edit</a>
+            <form asp-route-postId="@Model.PostId" asp-action="DeletePost" asp-controller="Post" method="Post">
+                <button class="btn btn-outline-danger">Delete</button>
+            </form>
+    }
+        <form asp-route-postId="@Model.PostId" asp-action="ToggleLike" asp-controller="Post" method="Post">
+            <button class="btn btn-info">@(liked?"Unlike":"Like")</button>
+        </form>
+        </div>
+</div>
+
+@await Html.PartialAsync("_NewComment",new UserPostComment(){PostId=Model.PostId})
+@await Html.PartialAsync("_CommentDisplay",Model.UserComments)

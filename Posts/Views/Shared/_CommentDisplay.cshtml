@@ -1,0 +1,19 @@
+@model List<UserPostComment>
+
+<div class="p-3 m-3 text">
+    <h3>Comments</h3>
+    @foreach (UserPostComment upc in Model)
+    {
+        bool OurComment = upc.UserId == Context.Session.GetInt32("UserId");
+        <div class="border shadow p-3 m-3">
+            <p>@upc.CommentingUser?.Name said @upc.Body</p>
+            <p>@upc.CreatedAt</p>
+            @if(OurComment)
+            {
+                <form asp-route-commentId="@upc.UserPostCommentId" asp-action="DeleteComment" asp-controller="Comment" method="Post">
+                    <button class="btn btn-danger">Delete</button>
+                </form>
+            }
+        </div>
+    }
+</div>

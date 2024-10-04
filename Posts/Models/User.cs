@@ -35,6 +35,7 @@ public class User
     //navprop
     public List<Post> CreatedPosts { get;set; } = [];
     public List<UserPostLike> PostLikes { get;set; } = [];
+    public List<UserPostComment> PostComments { get;set; } = [];
 }
 
 public class UniqueEmailAttribute : ValidationAttribute

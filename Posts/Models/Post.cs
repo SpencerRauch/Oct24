@@ -33,4 +33,5 @@ public class Post
     public User? Poster { get;set; }
 
     public List<UserPostLike> UserLikes { get;set; } = [];
+    public List<UserPostComment> UserComments { get;set; } = [];
 }
