@@ -31,4 +31,6 @@ public class Post
 
     //navprops
     public User? Poster { get;set; }
+
+    public List<UserPostLike> UserLikes { get;set; } = [];
 }
