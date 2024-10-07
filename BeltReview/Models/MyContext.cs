@@ -10,6 +10,8 @@ public class MyContext : DbContext
 
 
     public DbSet<User> Users { get; set; } 
+    public DbSet<Sighting> Sightings { get; set; } 
+    public DbSet<UserSightingBelief> UserSightingBeliefs { get; set; } 
 
 
 }

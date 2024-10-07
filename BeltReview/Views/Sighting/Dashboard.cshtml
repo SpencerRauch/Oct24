@@ -1,0 +1,25 @@
+@model List<Sighting>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Sighted By</th>
+            <th>Date</th>
+            <th>Believed by</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Sighting s in Model)
+        {
+            <tr>
+                <td><a asp-route-sightingId="@s.SightingId" asp-action="ViewSighting" asp-controller="Sighting" class="Classes">@s.Title</a></td>
+                <td>@s.ReportingUser?.Name</td>
+                <td>@s.Date.ToString("MMM d yyyy")</td>
+                <td>@s.UserBeliefs?.Count</td>
+                <td>TBD</td>
+            </tr>
+        }
+    </tbody>
+</table>
