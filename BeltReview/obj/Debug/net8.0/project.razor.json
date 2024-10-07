@@ -19364,6 +19364,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\stacks\\CSharp\\Oct24\\BeltReview\\Views\\Sighting\\ViewSighting.cshtml",
+      "TargetPath": "Views\\Sighting\\ViewSighting.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\stacks\\CSharp\\Oct24\\BeltReview\\Views\\User\\Index.cshtml",
       "TargetPath": "Views\\User\\Index.cshtml",
       "FileKind": "mvc"

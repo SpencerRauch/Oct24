@@ -45,9 +45,56 @@ public class SightingController : Controller
         newSighting.UserId = (int)HttpContext.Session.GetInt32("UserId");
         _context.Add(newSighting);
         _context.SaveChanges();
-        // ! -- update to redirect to view one once view one is created
-        return RedirectToAction("Dashboard");
 
+
+        return RedirectToAction("ViewSighting",new{sightingId = newSighting.SightingId});
+
+    }
+
+    [HttpGet("sightings/{sightingId}")]
+    public IActionResult ViewSighting(int sightingId)
+    {
+        Sighting? OneSighting = _context.Sightings
+                                        .Include(s => s.ReportingUser)
+                                        .Include(s => s.UserBeliefs)
+                                        .ThenInclude(usb => usb.BelievingUser)
+                                        .FirstOrDefault(s => s.SightingId == sightingId);
+        if (OneSighting == null)
+        {
+            return RedirectToAction("Dashboard");
+        }
+        return View("ViewSighting",OneSighting);
+    }
+
+    [HttpPost("sightings/{sightingId}/delete")]
+    public IActionResult DeleteSighting(int sightingId)
+    {
+        Sighting? ToBeDeleted = _context.Sightings.FirstOrDefault(s => s.SightingId == sightingId);
+        if (ToBeDeleted != null)
+        {
+            _context.Remove(ToBeDeleted);
+            _context.SaveChanges();
+        }
+        return RedirectToAction("Dashboard");
+    }
+
+    [HttpPost("sightings/{sightingId}/toggle_belief")]
+    public RedirectToActionResult ToggleBelief(int sightingId)
+    {
+        int UserId = (int)HttpContext.Session.GetInt32("UserId");
+        UserSightingBelief? ExistingBelief = _context.UserSightingBeliefs
+                                    .FirstOrDefault(usb => usb.SightingId == sightingId && usb.UserId == UserId);
+        if (ExistingBelief == null)
+        {
+            UserSightingBelief newBelief = new(){UserId = UserId, SightingId = sightingId};
+            _context.Add(newBelief);
+        }
+        else
+        {
+            _context.Remove(ExistingBelief);
+        }
+        _context.SaveChanges();
+        return RedirectToAction("Dashboard");
     }
 
 }
