@@ -55,7 +55,25 @@ class MinHeap {
      * @param {number} num The num to add.
      */
     insert(num) { 
-        //your code here
+        //add item to heap
+        this.heap.push(num);
+
+        //get index of new item
+        let insertedIdx = this.heap.length - 1;
+        //get index of new item's parent
+        let parentIdx = this.idxOfParent(insertedIdx);
+        //while value at insertion point less than its parent, swap and recalculate parent
+        while (this.heap[insertedIdx] < this.heap[parentIdx] && parentIdx >= 1) {
+            //perform swap
+            let temp = this.heap[insertedIdx];
+            this.heap[insertedIdx] = this.heap[parentIdx];
+            this.heap[parentIdx] = temp;
+            //swapped value is now at old parent
+            insertedIdx = parentIdx;
+            //get parent of old parent
+            parentIdx = this.idxOfParent(insertedIdx);
+        }
+        return this;
     }
 
     /**
