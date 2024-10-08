@@ -109,6 +109,7 @@ class MinHeap {
     extract() { 
 
         if (this.heap.length == 1) return null;
+        if (this.heap.length == 2) return this.heap.pop()
 
         // store min for return
         let min = this.heap[1]
