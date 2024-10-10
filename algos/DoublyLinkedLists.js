@@ -47,7 +47,31 @@ class DoublyLinkedList {
      * @returns {DoublyLinkedList} This list.
      */
     insertAtFront(data) {
-        // TODO Your code here
+        // Create a New Node Var
+        // New Node = data argument
+        // next & prev are null
+        let newNode = new DLLNode(data);
+
+        // If List is empty
+        // New Node is Head & Tail of List
+        if (this.head == null) {
+            this.head = newNode;
+            this.tail = newNode;
+            return this;
+        }
+
+        // if list is populated
+        // look at the Head of the list
+        // set this.head.prev to New Node
+        this.head.prev = newNode;
+
+        // set next of New Node to Old Head Data
+        newNode.next = this.head;
+
+        // set New Node to Head
+        this.head = newNode;
+
+        return this;
     }
 
     /**
@@ -58,7 +82,16 @@ class DoublyLinkedList {
      * @returns {DoublyLinkedList} This list.
      */
     insertAtBack(data) {
-        // TODO Your code here
+        let newTail = new DLLNode(data);
+        if (this.isEmpty()) {
+            this.head = newTail;
+            this.tail = newTail;
+        } else {
+            this.tail.next = newTail;
+            newTail.prev = this.tail;
+            this.tail = newTail;
+        }
+        return this;
     }
 
     // * EXTRA
@@ -69,7 +102,35 @@ class DoublyLinkedList {
      * @returns {any} The data of the removed node or null if no true middle
      */
     removeMiddleNode() {
-        // TODO your code here
+        //nothing to remove
+        if (this.isEmpty()) return null;
+
+        // when there is only 1 node, it is the middle, remove it.
+        if (this.head === this.tail) {
+            const removedData = this.head.data;
+            this.head = null;
+            this.tail = null;
+            return removedData;
+        }
+
+        let forwardRunner = this.head;
+        let backwardsRunner = this.tail;
+
+        while (forwardRunner && backwardsRunner) {
+            if (forwardRunner === backwardsRunner) {
+                const midNode = forwardRunner;
+                midNode.prev.next = midNode.next;
+                midNode.next.prev = midNode.prev;
+                return midNode.data;
+            }
+            // runners passed each other without stopping on the same node, even length, we can exit early
+            if (forwardRunner.prev === backwardsRunner) {
+                return null;
+            }
+            forwardRunner = forwardRunner.next;
+            backwardsRunner = backwardsRunner.prev;
+        }
+        return null;
     }
 
     /**
