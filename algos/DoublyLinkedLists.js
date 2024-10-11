@@ -169,4 +169,33 @@ class DoublyLinkedList {
         items.forEach((item) => this.insertAtBack(item));
         return this;
     }
+    /**
+     * Inserts a new node with the given newVal after the node that has the
+     * given targetVal as it's data.
+     * - Time: O(?).
+     * - Space: O(?).
+     * @param {any} targetVal The node data to find.
+     * @param {any} newVal Data for the new node.
+     * @returns {boolean} Indicates if the new node was added.
+    */
+    insertAfter(targetVal, newVal) {
+        // TODO: Your code here
+    }
+    /**
+     * Inserts a new node with the given newVal before the node that has the
+     * given targetVal as it's data.
+     * - Time: O(?).
+     * - Space: O(?).
+     * @param {any} targetVal The node data to find.
+     * @param {any} newVal Data for the new node.
+     * @returns {boolean} Indicates if the new node was added.
+    */
+    insertBefore(targetVal, newVal) {
+        // TODO: Your code here
+    }
 }
+const singleNodeList = new DoublyLinkedList().insertAtBack(1);
+const biNodeList = new DoublyLinkedList().insertAtBack(1).insertAtBack(2);
+const firstThreeList = new DoublyLinkedList().insertAtBackMany([1, 2, 3]);
+const secondThreeList = new DoublyLinkedList().insertAtBackMany([4, 5, 6]);
+const unorderedList = new DoublyLinkedList().insertAtBackMany([-5, -10, 4, -3, 6, 1, -7, -2,]);
