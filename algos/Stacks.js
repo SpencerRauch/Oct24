@@ -80,27 +80,38 @@ class StackNode {
 class LinkedListStack {
     constructor() {
         this.head = null;
+        this.length = 0;
     }
 
     push(item) {
-        //your code here
+        let newNode = new StackNode(item);
+        newNode.next = this.head;
+        this.head = newNode;
+        this.length += 1;
     }
 
     pop() {
-        //your code here
+        if (this.head == null) {
+            return null;
+        }
+        let value = this.head.data;
+        this.head = this.head.next;
+        this.length -= 1;
+        return value;
     }
 
     peek() {
-        //your code here
+        return this.head.data;
     }
 
     isEmpty() {
-        //your code here
+        return this.head === null;
     }
 
     size() {
         //your code here
         //BONUS: how to make size O(1)?
+        return this.length;
     }
 
     print() {
