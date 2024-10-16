@@ -202,9 +202,13 @@ const arrayQueueTwo = new Queue();
 arrayQueueTwo.items = [7,7,7,7];
 arrayQueueTwo.print();
 
+
 const listQueue = new LinkedListQueue();
 listQueue.seed([1, 2, 9, 3, 3, 6]);
 listQueue.print();
 
 console.log(CompareQueues(arrayQueueOne,listQueue)) // true
 console.log(CompareQueues(arrayQueueTwo, listQueue)) // false
+arrayQueueOne.print();
+arrayQueueTwo.print();
+listQueue.print();
