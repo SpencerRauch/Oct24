@@ -127,6 +127,6 @@ public class PostController : Controller
         _context.SaveChanges();
         Console.WriteLine(HttpContext.Request.Headers.Referer);
         
-        return Redirect(HttpContext.Request.Headers.Referer);
+        return RedirectToAction("AllPosts");
     }
 }
