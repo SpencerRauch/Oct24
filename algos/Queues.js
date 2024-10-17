@@ -213,21 +213,38 @@ function CompareQueues(qOne, qTwo) {
 }
 
 
+/**
+ * Determines whether the sum of the left half of the queue items is equal to
+ * the sum of the right half. Avoid indexing the queue items directly via
+ * bracket notation, use the queue methods instead for practice.
+ * Use no extra array or objects.
+ * The queue should be returned to it's original order when done.
+ * If queue cannot be evenly divided, return false.
+ * - Time: O(?).
+ * - Space: O(?).
+ * @returns {boolean} Whether the sum of the left and right halves is equal.
+ */
+function isSumOfHalvesEqual(queue) {
+    //Your code here
+}
+
 const arrayQueueOne = new Queue();
 arrayQueueOne.items = [1, 2, 9, 3, 3, 6];
 arrayQueueOne.print();
 
 const arrayQueueTwo = new Queue();
-arrayQueueTwo.items = [7,7,7,7];
+arrayQueueTwo.items = [7, 7, 7];
 arrayQueueTwo.print();
-
 
 const listQueue = new LinkedListQueue();
-listQueue.seed([1, 2, 9, 3, 3, 6]);
+listQueue.seed([10, 2, 9, 3, 3, 6]);
 listQueue.print();
 
-console.log(CompareQueues(arrayQueueOne,listQueue)) // true
-console.log(CompareQueues(arrayQueueTwo, listQueue)) // false
-arrayQueueOne.print();
-arrayQueueTwo.print();
-listQueue.print();
+const listQueue2 = new LinkedListQueue();
+listQueue2.seed([10, 2, 9, 12, 3, 6]);
+listQueue2.print();
+
+console.log(isSumOfHalvesEqual(arrayQueueOne)); // true
+console.log(isSumOfHalvesEqual(arrayQueueTwo)); // false
+console.log(isSumOfHalvesEqual(listQueue)); // false
+console.log(isSumOfHalvesEqual(listQueue2)); // true
