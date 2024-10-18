@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using BeltReview.Models;
+using Microsoft.Data.SqlClient;
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 // Add services to the container.
@@ -8,7 +9,7 @@ builder.Services.AddHttpContextAccessor();
 builder.Services.AddSession();
 builder.Services.AddDbContext<MyContext>(options =>
 {
-    options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
+    options.UseSqlServer(connectionString);
 });
 var app = builder.Build();
 
