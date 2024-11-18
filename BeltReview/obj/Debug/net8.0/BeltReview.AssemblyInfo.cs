@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BeltReview")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d34e777884c7933fb972aa2fb23d0efc1ef081fc")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+054eb40bf387bc7b219a24366c136b3f4995d375")]
 [assembly: System.Reflection.AssemblyProductAttribute("BeltReview")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BeltReview")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
